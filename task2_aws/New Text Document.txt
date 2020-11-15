@@ -1,0 +1,18 @@
+aws s3api create-bucket --acl public-read-write --bucket testb221 --region us-east-1 --create-bucket-configuration LocationConstraint=eu-west-1 --profile stiles
+
+upload
+aws s3 cp C:\Users\DEREK\Desktop\task2_aws\ex1.png s3://testb221/ --acl public-read
+
+create distribution
+
+aws cloudfront create-distribution --origin-domain-name t2bucket.s3.amazonaws.com --default-root-object ex1.png
+
+<html>
+This is a test task and the images are accessed directly from the s3 bucket using the cloudfront services.
+<br />
+<br />
+<img src="http://testb221.s3-eu-west-1.amazonaws.com/test.jpg" width="520" height="320">
+<br />
+<br />
+</body>
+</html>
